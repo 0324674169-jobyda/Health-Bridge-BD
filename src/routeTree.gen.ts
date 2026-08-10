@@ -9,27 +9,31 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as LoginRouteImport } from './routes/login'
-import { Route as AppRouteImport } from './routes/_app'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as AppStatisticsRouteImport } from './routes/_app.statistics'
-import { Route as AppProfileRouteImport } from './routes/_app.profile'
-import { Route as AppPrescriptionsRouteImport } from './routes/_app.prescriptions'
-import { Route as AppPharmacyRouteImport } from './routes/_app.pharmacy'
-import { Route as AppPatientsRouteImport } from './routes/_app.patients'
-import { Route as AppMyAppointmentsRouteImport } from './routes/_app.my-appointments'
-import { Route as AppMedicalHistoryRouteImport } from './routes/_app.medical-history'
-import { Route as AppLabReportsRouteImport } from './routes/_app.lab-reports'
-import { Route as AppDashboardRouteImport } from './routes/_app.dashboard'
-import { Route as AppConsentsRouteImport } from './routes/_app.consents'
-import { Route as AppAuditRouteImport } from './routes/_app.audit'
-import { Route as AppAppointmentsRouteImport } from './routes/_app.appointments'
+import { Route as AppRouteImport } from './routes/_app'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as AppAdminRouteImport } from './routes/_app.admin'
+import { Route as AppAppointmentsRouteImport } from './routes/_app.appointments'
+import { Route as AppAuditRouteImport } from './routes/_app.audit'
+import { Route as AppConsentsRouteImport } from './routes/_app.consents'
+import { Route as AppDashboardRouteImport } from './routes/_app.dashboard'
+import { Route as AppLabReportsRouteImport } from './routes/_app.lab-reports'
+import { Route as AppMedicalHistoryRouteImport } from './routes/_app.medical-history'
+import { Route as AppMyAppointmentsRouteImport } from './routes/_app.my-appointments'
+import { Route as AppPatientsRouteImport } from './routes/_app.patients'
+import { Route as AppPharmacyRouteImport } from './routes/_app.pharmacy'
+import { Route as AppPrescriptionsRouteImport } from './routes/_app.prescriptions'
+import { Route as AppProfileRouteImport } from './routes/_app.profile'
+import { Route as AppStatisticsRouteImport } from './routes/_app.statistics'
 
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppRoute = AppRouteImport.update({
+  id: '/_app',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LoginRoute = LoginRouteImport.update({
@@ -37,68 +41,14 @@ const LoginRoute = LoginRouteImport.update({
   path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AppRoute = AppRouteImport.update({
-  id: '/_app',
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AppStatisticsRoute = AppStatisticsRouteImport.update({
-  id: '/statistics',
-  path: '/statistics',
-  getParentRoute: () => AppRoute,
-} as any)
-const AppProfileRoute = AppProfileRouteImport.update({
-  id: '/profile',
-  path: '/profile',
-  getParentRoute: () => AppRoute,
-} as any)
-const AppPrescriptionsRoute = AppPrescriptionsRouteImport.update({
-  id: '/prescriptions',
-  path: '/prescriptions',
-  getParentRoute: () => AppRoute,
-} as any)
-const AppPharmacyRoute = AppPharmacyRouteImport.update({
-  id: '/pharmacy',
-  path: '/pharmacy',
-  getParentRoute: () => AppRoute,
-} as any)
-const AppPatientsRoute = AppPatientsRouteImport.update({
-  id: '/patients',
-  path: '/patients',
-  getParentRoute: () => AppRoute,
-} as any)
-const AppMyAppointmentsRoute = AppMyAppointmentsRouteImport.update({
-  id: '/my-appointments',
-  path: '/my-appointments',
-  getParentRoute: () => AppRoute,
-} as any)
-const AppMedicalHistoryRoute = AppMedicalHistoryRouteImport.update({
-  id: '/medical-history',
-  path: '/medical-history',
-  getParentRoute: () => AppRoute,
-} as any)
-const AppLabReportsRoute = AppLabReportsRouteImport.update({
-  id: '/lab-reports',
-  path: '/lab-reports',
-  getParentRoute: () => AppRoute,
-} as any)
-const AppDashboardRoute = AppDashboardRouteImport.update({
-  id: '/dashboard',
-  path: '/dashboard',
-  getParentRoute: () => AppRoute,
-} as any)
-const AppConsentsRoute = AppConsentsRouteImport.update({
-  id: '/consents',
-  path: '/consents',
-  getParentRoute: () => AppRoute,
-} as any)
-const AppAuditRoute = AppAuditRouteImport.update({
-  id: '/audit',
-  path: '/audit',
+const AppAdminRoute = AppAdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
   getParentRoute: () => AppRoute,
 } as any)
 const AppAppointmentsRoute = AppAppointmentsRouteImport.update({
@@ -106,9 +56,59 @@ const AppAppointmentsRoute = AppAppointmentsRouteImport.update({
   path: '/appointments',
   getParentRoute: () => AppRoute,
 } as any)
-const AppAdminRoute = AppAdminRouteImport.update({
-  id: '/admin',
-  path: '/admin',
+const AppAuditRoute = AppAuditRouteImport.update({
+  id: '/audit',
+  path: '/audit',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppConsentsRoute = AppConsentsRouteImport.update({
+  id: '/consents',
+  path: '/consents',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppDashboardRoute = AppDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppLabReportsRoute = AppLabReportsRouteImport.update({
+  id: '/lab-reports',
+  path: '/lab-reports',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppMedicalHistoryRoute = AppMedicalHistoryRouteImport.update({
+  id: '/medical-history',
+  path: '/medical-history',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppMyAppointmentsRoute = AppMyAppointmentsRouteImport.update({
+  id: '/my-appointments',
+  path: '/my-appointments',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppPatientsRoute = AppPatientsRouteImport.update({
+  id: '/patients',
+  path: '/patients',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppPharmacyRoute = AppPharmacyRouteImport.update({
+  id: '/pharmacy',
+  path: '/pharmacy',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppPrescriptionsRoute = AppPrescriptionsRouteImport.update({
+  id: '/prescriptions',
+  path: '/prescriptions',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppProfileRoute = AppProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppStatisticsRoute = AppStatisticsRouteImport.update({
+  id: '/statistics',
+  path: '/statistics',
   getParentRoute: () => AppRoute,
 } as any)
 
@@ -235,18 +235,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/login': {
-      id: '/login'
-      path: '/login'
-      fullPath: '/login'
-      preLoaderRoute: typeof LoginRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_app': {
@@ -256,88 +249,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_app/statistics': {
-      id: '/_app/statistics'
-      path: '/statistics'
-      fullPath: '/statistics'
-      preLoaderRoute: typeof AppStatisticsRouteImport
-      parentRoute: typeof AppRoute
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/_app/profile': {
-      id: '/_app/profile'
-      path: '/profile'
-      fullPath: '/profile'
-      preLoaderRoute: typeof AppProfileRouteImport
-      parentRoute: typeof AppRoute
-    }
-    '/_app/prescriptions': {
-      id: '/_app/prescriptions'
-      path: '/prescriptions'
-      fullPath: '/prescriptions'
-      preLoaderRoute: typeof AppPrescriptionsRouteImport
-      parentRoute: typeof AppRoute
-    }
-    '/_app/pharmacy': {
-      id: '/_app/pharmacy'
-      path: '/pharmacy'
-      fullPath: '/pharmacy'
-      preLoaderRoute: typeof AppPharmacyRouteImport
-      parentRoute: typeof AppRoute
-    }
-    '/_app/patients': {
-      id: '/_app/patients'
-      path: '/patients'
-      fullPath: '/patients'
-      preLoaderRoute: typeof AppPatientsRouteImport
-      parentRoute: typeof AppRoute
-    }
-    '/_app/my-appointments': {
-      id: '/_app/my-appointments'
-      path: '/my-appointments'
-      fullPath: '/my-appointments'
-      preLoaderRoute: typeof AppMyAppointmentsRouteImport
-      parentRoute: typeof AppRoute
-    }
-    '/_app/medical-history': {
-      id: '/_app/medical-history'
-      path: '/medical-history'
-      fullPath: '/medical-history'
-      preLoaderRoute: typeof AppMedicalHistoryRouteImport
-      parentRoute: typeof AppRoute
-    }
-    '/_app/lab-reports': {
-      id: '/_app/lab-reports'
-      path: '/lab-reports'
-      fullPath: '/lab-reports'
-      preLoaderRoute: typeof AppLabReportsRouteImport
-      parentRoute: typeof AppRoute
-    }
-    '/_app/dashboard': {
-      id: '/_app/dashboard'
-      path: '/dashboard'
-      fullPath: '/dashboard'
-      preLoaderRoute: typeof AppDashboardRouteImport
-      parentRoute: typeof AppRoute
-    }
-    '/_app/consents': {
-      id: '/_app/consents'
-      path: '/consents'
-      fullPath: '/consents'
-      preLoaderRoute: typeof AppConsentsRouteImport
-      parentRoute: typeof AppRoute
-    }
-    '/_app/audit': {
-      id: '/_app/audit'
-      path: '/audit'
-      fullPath: '/audit'
-      preLoaderRoute: typeof AppAuditRouteImport
+    '/_app/admin': {
+      id: '/_app/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AppAdminRouteImport
       parentRoute: typeof AppRoute
     }
     '/_app/appointments': {
@@ -347,11 +277,81 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppAppointmentsRouteImport
       parentRoute: typeof AppRoute
     }
-    '/_app/admin': {
-      id: '/_app/admin'
-      path: '/admin'
-      fullPath: '/admin'
-      preLoaderRoute: typeof AppAdminRouteImport
+    '/_app/audit': {
+      id: '/_app/audit'
+      path: '/audit'
+      fullPath: '/audit'
+      preLoaderRoute: typeof AppAuditRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/consents': {
+      id: '/_app/consents'
+      path: '/consents'
+      fullPath: '/consents'
+      preLoaderRoute: typeof AppConsentsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/dashboard': {
+      id: '/_app/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof AppDashboardRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/lab-reports': {
+      id: '/_app/lab-reports'
+      path: '/lab-reports'
+      fullPath: '/lab-reports'
+      preLoaderRoute: typeof AppLabReportsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/medical-history': {
+      id: '/_app/medical-history'
+      path: '/medical-history'
+      fullPath: '/medical-history'
+      preLoaderRoute: typeof AppMedicalHistoryRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/my-appointments': {
+      id: '/_app/my-appointments'
+      path: '/my-appointments'
+      fullPath: '/my-appointments'
+      preLoaderRoute: typeof AppMyAppointmentsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/patients': {
+      id: '/_app/patients'
+      path: '/patients'
+      fullPath: '/patients'
+      preLoaderRoute: typeof AppPatientsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/pharmacy': {
+      id: '/_app/pharmacy'
+      path: '/pharmacy'
+      fullPath: '/pharmacy'
+      preLoaderRoute: typeof AppPharmacyRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/prescriptions': {
+      id: '/_app/prescriptions'
+      path: '/prescriptions'
+      fullPath: '/prescriptions'
+      preLoaderRoute: typeof AppPrescriptionsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/profile': {
+      id: '/_app/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof AppProfileRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/statistics': {
+      id: '/_app/statistics'
+      path: '/statistics'
+      fullPath: '/statistics'
+      preLoaderRoute: typeof AppStatisticsRouteImport
       parentRoute: typeof AppRoute
     }
   }
@@ -400,3 +400,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
